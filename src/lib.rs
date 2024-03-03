@@ -1,5 +1,9 @@
 #![doc = include_str!("../README.md")]
 
+pub mod pdftopng {
+    include!(concat!(env!("OUT_DIR"), "/pdftopng.rs"));
+}
+
 mod bindgen {
     #![allow(non_upper_case_globals)]
     #![allow(non_camel_case_types)]

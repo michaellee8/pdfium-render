@@ -1,0 +1,13 @@
+syntax = "proto3";
+package pdftopng;
+
+message RenderedImage {
+  uint32 width = 1;
+  uint32 height = 2;
+  string format = 3;
+  bytes data = 4;
+}
+
+message PdfToPngResult {
+  repeated RenderedImage images = 1;
+}

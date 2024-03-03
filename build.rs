@@ -9,12 +9,16 @@
 #[cfg(feature = "bindings")]
 extern crate bindgen;
 
-fn main() {
+fn main() -> std::io::Result<()> {
     #[cfg(feature = "bindings")]
     build_bindings();
 
     #[cfg(feature = "static")]
     statically_link_pdfium();
+
+    prost_build::compile_protos(&["src/pdf_to_png.proto"], &["src/"])?;
+
+    Ok(())
 }
 
 #[cfg(feature = "bindings")]
